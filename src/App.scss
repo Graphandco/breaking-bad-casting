@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-image: url('img/bg.jpg');
+    background-size: cover;
+    font-family: 'Lora', serif;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+
+    img {
+        width: 150px;
+        height: auto;
+    }
+}
+
+.search {
+    padding: 0 2rem;
+    input {
+        display: block;
+        padding: 10px;
+        font-size: 20px;
+        border: 0;
+        border-radius: 5px;
+        width: 50%;
+        min-width: 300px;
+        margin: auto;
+        @media (max-width: 768px) {
+            width: 80%;
+        }
+    }
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+
+    img {
+        width: 70px;
+    }
+}
+
+.char-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+
+    .char-card {
+        height: 300px;
+        position: relative;
+
+        &:hover,
+        &:focus {
+            .char-desc {
+                transform: scaleX(1);
+            }
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        .char-desc {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem 0.5rem 2rem 0.5rem;
+            background-color: rgba(rgb(25, 71, 13), 0.8);
+            color: white;
+            text-align: center;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: 0.3s;
+            -webkit-clip-path: polygon(0 30%, 100% 0, 100% 70%, 0% 100%);
+            clip-path: polygon(0 30%, 100% 0, 100% 70%, 0% 100%);
+
+            img {
+                width: 30px;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .name {
+                .real-name {
+                    text-transform: uppercase;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                }
+            }
+            .actor {
+                margin: 10px 0;
+            }
+
+            .saisons {
+                display: flex;
+                align-items: center;
+                span {
+                    font-size: 0.8rem;
+                    display: block;
+                    font-style: italic;
+                }
+                .saisons-list {
+                    display: flex;
+                    margin-left: 5px;
+                    .number {
+                        border: 1px solid white;
+                        margin: 0 2px;
+                        padding: 3px;
+                        height: 12px;
+                        width: 12px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}
