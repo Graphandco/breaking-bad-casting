@@ -12,9 +12,11 @@ const Card = ({ item }) => {
                     <div className='nickname'>"{item.nickname}"</div>
                 </div>
                 <div className='actor'>{item.portrayed}</div>
+                {console.log(item)}
+                {item.appearance !== null && 
                 <div className='saisons'>
                     <span className=''>
-                        {item.appearance.length > 1
+                        {item.appearance.length > 1 
                             ? 'Saisons : '
                             : 'Saison : '}
                     </span>
@@ -26,6 +28,7 @@ const Card = ({ item }) => {
                         ))}
                     </div>
                 </div>
+                }
             </div>
         </div>
     );
